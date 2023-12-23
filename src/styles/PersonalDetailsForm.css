@@ -80,3 +80,15 @@
     outline: none;
     border: 1px solid var(--black);
 }
+
+@media (min-width: 801px) and (max-width: 1200px) {
+    .personal-details-form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .personal-details-form {
+        width: 100%;
+    }
+}

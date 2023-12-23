@@ -4,7 +4,7 @@ import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { useState } from "react";
 
-const PersonalDetailsForm = () => {
+const PersonalDetailsForm = ({ fullName, updateFullName, email, updateEmail, github, updateGithub, phoneNumber, updatePhoneNumber }) => {
     const [isFormOpen, setIsFormOpen] = useState(true);
 
     const toggleForm = event => {
@@ -25,22 +25,22 @@ const PersonalDetailsForm = () => {
             <section className={isFormOpen ? "visible" : "hidden"}>
                 <label>
                     Full Name
-                    <input type="text" maxLength="30" />
+                    <input type="text" maxLength="30" value={fullName} onChange={event => updateFullName(event.target.value)} />
                 </label>
 
                 <label>
                     Email
-                    <input type="email" maxLength="30" />
+                    <input type="email" maxLength="30" value={email} onChange={event => updateEmail(event.target.value)} />
                 </label>
 
                 <label>
                     Github Link
-                    <input type="text" />
+                    <input type="text" value={github} onChange={event => updateGithub(event.target.value)} />
                 </label>
 
                 <label>
                     Phone Number
-                    <input type="number" onInput={e => e.target.value = e.target.value.slice(0, 20)} />
+                    <input type="number" value={phoneNumber} onInput={event => event.target.value = event.target.value.slice(0, 20)} onChange={event => updatePhoneNumber(event.target.value)} />
                 </label>
             </section>
         </form>

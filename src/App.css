@@ -11,6 +11,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--off-white);
 }
 
 #root {
@@ -18,8 +19,13 @@ body {
   --white: white;
   --black: black;
   display: flex;
-  flex-wrap: wrap;
   background-color: var(--off-white);
+  min-width: 300px;
 }
 
+@media (max-width: 800px) {
+  #root {
+    flex-direction: column;
+  }
+}
 

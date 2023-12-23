@@ -1,3 +1,22 @@
 .display-section {
     flex-grow: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+    .display-section {
+        padding: 10px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .display-section {
+        padding: 10px;
+        justify-content: center;
+    }
 }
