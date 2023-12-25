@@ -1,5 +1,5 @@
 .display-section {
-    flex-grow: 3;
+    flex-basis: 60%;
     display: flex;
     justify-content: flex-start;
     align-items: center;

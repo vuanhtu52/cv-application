@@ -18,7 +18,7 @@ const PersonalDetailsForm = ({ fullName, updateFullName, email, updateEmail, git
                 <img src={PersonIcon} alt="person icon" />
                 <h2>Personal Details</h2>
                 <button onClick={event => toggleForm(event)}>
-                    <img src={isFormOpen ? ArrowDownIcon : ArrowUpIcon} alt="arrow down icons" />
+                    <img src={isFormOpen ? ArrowDownIcon : ArrowUpIcon} alt="arrow icon" />
                 </button>
             </header>
 
