@@ -18,6 +18,7 @@ body {
   --off-white: #f3f4f6;
   --white: white;
   --black: black;
+  --grey: #cbd5e1;
   display: flex;
   background-color: var(--off-white);
   min-width: 300px;

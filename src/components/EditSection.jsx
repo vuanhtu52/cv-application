@@ -10,7 +10,9 @@ const EditSection = ({
     github,
     updateGithub,
     phoneNumber,
-    updatePhoneNumber
+    updatePhoneNumber,
+    schools, 
+    updateSchools
 }) => {
     return (
         <div className="edit-section">
@@ -24,7 +26,10 @@ const EditSection = ({
                 phoneNumber={phoneNumber}
                 updatePhoneNumber={updatePhoneNumber}
             />
-            <EducationForm />
+            <EducationForm 
+                schools={schools}
+                updateSchools={updateSchools}
+            />
         </div>
     );
 };

@@ -27,11 +27,6 @@
     cursor: pointer;
 }
 
-.personal-details-form header button > img {
-    width: 100%;
-    height: 100%;
-}
-
 .personal-details-form header img {
     width: 30px;
     margin: 0;

@@ -10,7 +10,7 @@ const PersonalDetailsForm = ({ fullName, updateFullName, email, updateEmail, git
     const toggleForm = event => {
         event.preventDefault();
         setIsFormOpen(!isFormOpen);
-    }
+    };
 
     return (
         <form className="personal-details-form">

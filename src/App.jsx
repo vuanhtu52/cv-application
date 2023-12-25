@@ -8,6 +8,16 @@ function App() {
   const [email, setEmail] = useState("clark.kent@gmail.com");
   const [github, setGithub] = useState("https://github.com/clarkkent");
   const [phoneNumber, setPhoneNumber] = useState("0123456789");
+  const [schools, setSchools] = useState([
+    {
+      id: "1",
+      name: "Metropolis University",
+      degree: "Bachelor of Journalism and Communications",
+      startDate: (new Date()).getTime(),
+      endDate: (new Date()).getTime(),
+      description: "Graduated with Distinction"
+    }
+  ]);
 
   return (
     <>
@@ -20,6 +30,8 @@ function App() {
         updateGithub={setGithub}
         phoneNumber={phoneNumber}
         updatePhoneNumber={setPhoneNumber}
+        schools={schools}
+        updateSchools={setSchools}
       />
       <DisplaySection
         fullName={fullName}
