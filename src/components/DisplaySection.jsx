@@ -1,7 +1,7 @@
 import "../styles/DisplaySection.css";
 import Page from "./Page";
 
-const DisplaySection = ({ fullName, email, github, phoneNumber }) => {
+const DisplaySection = ({ fullName, email, github, phoneNumber, schools }) => {
     return (
         <div className="display-section">
             <Page
@@ -9,6 +9,7 @@ const DisplaySection = ({ fullName, email, github, phoneNumber }) => {
                 email={email}
                 github={github}
                 phoneNumber={phoneNumber}
+                schools={schools}
             />
         </div>
     );

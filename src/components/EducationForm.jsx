@@ -25,7 +25,7 @@ const EducationForm = ({ schools, updateSchools }) => {
 
             <section className={isFormOpen ? "visible" : "hidden"}>
                 {
-                    schools.map(school => <SchoolForm key={school.id} school={school} />)
+                    schools.map(school => <SchoolForm key={school.id} school={school} schools={schools} updateSchools={updateSchools} />)
                 }
 
                 <button className="add-school">+ School</button>

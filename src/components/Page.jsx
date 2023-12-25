@@ -3,7 +3,7 @@ import EmailIcon from "../assets/svg/email.svg";
 import GithubIcon from "../assets/svg/github.svg";
 import PhoneIcon from "../assets/svg/phone.svg";
 
-const Page = ({ fullName, email, github, phoneNumber }) => {
+const Page = ({ fullName, email, github, phoneNumber, schools }) => {
     return (
         <div className="page">
             <header>
@@ -34,6 +34,26 @@ const Page = ({ fullName, email, github, phoneNumber }) => {
                     }
                 </div>
             </header>
+
+            <section className="education">
+                <h3>Education</h3>
+                {
+                    schools.map(school =>
+                        <section key={school.id}>
+                            <header>
+                                <div>{school.name}</div>
+                                <div>
+                                    {
+                                        `${new Date(school.startDate).toLocaleString("default", { month: "long" })} ${new Date(school.startDate).getFullYear()} - ${new Date(school.endDate).toLocaleString("default", { month: "long" })} ${new Date(school.endDate).getFullYear()}`
+                                    }
+                                </div>
+                            </header>
+                            <div>{school.degree}</div>
+                            <div>{school.description}</div>
+                        </section>
+                    )
+                }
+            </section>
         </div>
     );
 };

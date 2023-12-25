@@ -3,12 +3,24 @@ import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { useState } from "react";
 
-const SchoolForm = ({school}) => {
+const SchoolForm = ({ school, schools, updateSchools }) => {
     const [isFormOpen, setIsFormOpen] = useState(false);
 
     const toggleForm = event => {
         event.preventDefault();
         setIsFormOpen(!isFormOpen);
+    };
+
+    const updateSchool = newSchool => {
+        let newSchools = []
+        schools.forEach(school => {
+            if (school.id === newSchool.id) {
+                newSchools.push(newSchool);
+            } else {
+                newSchools.push(school);
+            }
+        });
+        updateSchools(newSchools);
     };
 
     return (
@@ -22,29 +34,52 @@ const SchoolForm = ({school}) => {
 
             <form className={isFormOpen ? "visible" : "hidden"}>
                 <label>
-                    School 
-                    <input type="text" maxLength="30" value={school.name} />
+                    School
+                    <input
+                        type="text"
+                        maxLength="30"
+                        value={school.name}
+                        onChange={event => updateSchool({ ...school, name: event.target.value })}
+                    />
                 </label>
 
                 <label>
-                    Degree 
-                    <input type="text" maxLength="30" value={school.degree} />
+                    Degree
+                    <input
+                        type="text"
+                        maxLength="50"
+                        value={school.degree}
+                        onChange={event => updateSchool({ ...school, degree: event.target.value })}
+                    />
                 </label>
 
                 <section className="dates">
                     <label>
-                        Start Date 
-                        <input type="date" value={`${new Date(school.startDate).getFullYear()}-${new Date(school.startDate).getMonth() + 1}-${new Date(school.startDate).getDate()}`} />
+                        Start Date
+                        <input
+                            type="date"
+                            value={`${new Date(school.startDate).getFullYear()}-${(new Date(school.startDate).getMonth() + 1).toString().padStart(2, "0")}-${(new Date(school.startDate).getDate()).toString().padStart(2, "0")}`}
+                            onChange={event => updateSchool({ ...school, startDate: (new Date(event.target.value)).getTime() })}
+                        />
                     </label>
                     <label>
-                        End Date 
-                        <input type="date" value={`${new Date(school.endDate).getFullYear()}-${new Date(school.endDate).getMonth() + 1}-${new Date(school.endDate).getDate()}`} />
+                        End Date
+                        <input
+                            type="date"
+                            value={`${new Date(school.endDate).getFullYear()}-${(new Date(school.endDate).getMonth() + 1).toString().padStart(2, "0")}-${(new Date(school.endDate).getDate()).toString().padStart(2, "0")}`}
+                            onChange={event => updateSchool({ ...school, endDate: (new Date(event.target.value)).getTime() })}
+                        />
                     </label>
                 </section>
 
                 <label>
-                    Description 
-                    <textarea rows="10" maxLength="500" />
+                    Description
+                    <textarea
+                        rows="10"
+                        maxLength="500"
+                        value={school.description}
+                        onChange={event => updateSchool({...school, description: event.target.value})}
+                    />
                 </label>
             </form>
         </div>

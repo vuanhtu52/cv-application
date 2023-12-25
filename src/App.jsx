@@ -15,7 +15,7 @@ function App() {
       degree: "Bachelor of Journalism and Communications",
       startDate: (new Date()).getTime(),
       endDate: (new Date()).getTime(),
-      description: "Graduated with Distinction"
+      description: "Graduated with Distinction, student of the year, valedictorian. Ranked higher than batman and wonder woman."
     }
   ]);
 
@@ -38,6 +38,7 @@ function App() {
         email={email}
         github={github}
         phoneNumber={phoneNumber}
+        schools={schools}
       />
     </>
   )

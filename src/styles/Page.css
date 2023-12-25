@@ -4,10 +4,9 @@
     justify-content: flex-start;
     align-items: center;
     background-color: var(--white);
-    padding: 10px;
+    padding: 50px;
     width: 80%;
     min-width: 400px;
-    /* max-width: 80%; */
     height: calc(100vh - 40px);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
@@ -40,6 +39,28 @@
     width: 20px;
 }
 
+.display-section > .page > .education {
+    width: 100%;
+}
+
+.display-section > .page > .education > h3 {
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 5px;
+}
+
+.display-section > .page > .education > section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.display-section > .page > .education > section > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
 @media (min-width: 801px) and (max-width: 1200px) {
     .display-section .page {
         width: 100%;
@@ -50,5 +71,9 @@
 @media (max-width: 800px) {
     .display-section .page {
         width: 100%;
+    }
+
+    .display-section > .page .contact-info {
+        flex-direction: column;
     }
 }
