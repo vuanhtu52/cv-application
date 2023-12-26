@@ -1,0 +1,85 @@
+.experience-form {
+    background-color: var(--white);
+    width: 80%;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.experience-form > header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.experience-form > header img {
+    width: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.experience-form > header button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.experience-form > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.experience-form > section.visible {
+    animation: expand 300ms ease-in-out;
+    transform-origin: top;
+}
+
+@keyframes expand {
+    0% {
+      transform: scaleY(0);
+    }
+    
+    100% {
+      transform: scaleY(1);
+    }
+}
+
+.experience-form > section.hidden {
+    display: none;
+}
+
+.experience-form .add-company {
+    color: var(--black);
+    font-size: 16px;
+    padding: 10px 15px;
+    align-self: center;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid var(--black);
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.experience-form .add-company:active {
+    transform: translateY(4px);
+}
+
+
+@media (min-width: 801px) and (max-width: 1200px) {
+    .experience-form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .experience-form {
+        width: 100%;
+    }
+}

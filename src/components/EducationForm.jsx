@@ -4,7 +4,6 @@ import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import SchoolForm from "./SchoolForm";
 import { useState } from "react";
-// import uuid from 'react-uuid';
 import { v4 as uuidv4 } from "uuid";
 
 const EducationForm = ({ schools, updateSchools }) => {

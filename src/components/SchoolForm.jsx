@@ -1,12 +1,10 @@
 import "../styles/SchoolForm.css";
 import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
-import { useState } from "react";
 
 const SchoolForm = ({ school, schools, updateSchools, childrenState, setChildrenState }) => {
     const toggleForm = event => {
         event.preventDefault();
-        // setIsFormOpen(!isFormOpen);
         let newChildrenState = {...childrenState};
         for (let key in newChildrenState) {
             if (key === school.id) {

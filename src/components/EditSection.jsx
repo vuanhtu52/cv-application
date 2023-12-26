@@ -1,6 +1,7 @@
 import "../styles/EditSection.css";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import EducationForm from "./EducationForm";
+import ExperienceForm from "./ExperienceForm";
 
 const EditSection = ({
     fullName,
@@ -12,7 +13,9 @@ const EditSection = ({
     phoneNumber,
     updatePhoneNumber,
     schools, 
-    updateSchools
+    updateSchools,
+    companies,
+    updateCompanies
 }) => {
     return (
         <div className="edit-section">
@@ -29,6 +32,10 @@ const EditSection = ({
             <EducationForm 
                 schools={schools}
                 updateSchools={updateSchools}
+            />
+            <ExperienceForm
+                companies={companies}
+                updateCompanies={updateCompanies}
             />
         </div>
     );

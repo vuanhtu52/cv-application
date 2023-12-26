@@ -1,22 +1,22 @@
-.school-form {
+.company-form {
     border: 1px solid var(--slight-grey);
     padding: 10px;
     border-radius: 5px;
 }
 
-.school-form > header {
+.company-form > header {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.school-form > header img {
+.company-form > header img {
     width: 20px;
     margin: 0;
     padding: 0;
 }
 
-.school-form > header button {
+.company-form > header button {
     width: 20px;
     height: 20px;
     padding: 0;
@@ -26,14 +26,14 @@
     cursor: pointer;
 }
 
-.school-form > form {
+.company-form > form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
 }
 
-.school-form > form.visible {
+.company-form > form.visible {
     animation: expand 300ms ease-in-out;
     transform-origin: top;
 }
@@ -48,18 +48,18 @@
     }
 }
 
-.school-form > form.hidden {
+.company-form > form.hidden {
     display: none;
 }
 
-.school-form > form label {
+.company-form > form label {
     display: flex;
     flex-direction: column;
     gap: 5px;
     font-weight: 600;
 }
 
-.school-form label > input {
+.company-form label > input {
     background-color: var(--off-white);
     border: none;
     height: 35px;
@@ -67,33 +67,33 @@
     padding: 0 10px;
 }
 
-.school-form label > input:focus {
+.company-form label > input:focus {
     outline: none;
     border: 1px solid var(--black);
 }
 
-.school-form .dates {
+.company-form .dates {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
 
-.school-form .dates > * {
+.company-form .dates > * {
     flex-basis: 50%;
 }
 
-.school-form > form textarea {
+.company-form > form textarea {
     border: 1px solid var(--slight-grey);
     border-radius: 5px;
 }
 
-.school-form > form textarea:focus {
+.company-form > form textarea:focus {
     outline: none;
     border: 1px solid var(--black);
 }
 
-.school-form .delete-button {
+.company-form > form > .delete-button {
     color: var(--grey);
     border: 1px solid var(--grey);
     background-color: transparent;
@@ -104,7 +104,7 @@
 }
 
 @media (max-width: 800px) {
-    .school-form .dates {
+    .company-form .dates {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
