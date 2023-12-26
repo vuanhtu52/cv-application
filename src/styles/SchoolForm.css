@@ -2,6 +2,9 @@
     border: 1px solid var(--grey);
     padding: 10px;
     border-radius: 5px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 10px; */
 }
 
 .school-form > header {
@@ -36,6 +39,10 @@
 .school-form > form.visible {
     animation: expand 300ms ease-in-out;
     transform-origin: top;
+}
+
+.school-form > form > .delete-button {
+    align-self: flex-end;
 }
 
 @keyframes expand {
@@ -84,13 +91,22 @@
 }
 
 .school-form > form textarea {
-    border: 1px solid var(--grey);
+    border: 1px solid var(--slight-grey);
     border-radius: 5px;
 }
 
 .school-form > form textarea:focus {
     outline: none;
     border: 1px solid var(--black);
+}
+
+.school-form .delete-button {
+    color: var(--grey);
+    border: 1px solid var(--grey);
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {

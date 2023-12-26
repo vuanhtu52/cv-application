@@ -65,6 +65,10 @@
     font-weight: 600;
 }
 
+.display-section > .page > .education > section > div:nth-child(2) {
+    word-wrap: break-word;
+}
+
 @media (min-width: 801px) and (max-width: 1200px) {
     .display-section .page {
         width: 100%;

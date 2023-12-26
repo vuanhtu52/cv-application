@@ -49,7 +49,7 @@ const Page = ({ fullName, email, github, phoneNumber, schools }) => {
                                 </div>
                             </header>
                             <div>{school.degree}</div>
-                            <div>{school.description}</div>
+                            <div className="description">{school.description}</div>
                         </section>
                     )
                 }

@@ -28,6 +28,13 @@ const SchoolForm = ({ school, schools, updateSchools, childrenState, setChildren
         updateSchools(newSchools);
     };
 
+    const deleteSchool = event => {
+        event.preventDefault();
+        let newSchools = [...schools];
+        newSchools = newSchools.filter(newSchool => newSchool.id !== school.id);
+        updateSchools(newSchools);
+    };
+
     return (
         <div className="school-form">
             <header>
@@ -86,6 +93,8 @@ const SchoolForm = ({ school, schools, updateSchools, childrenState, setChildren
                         onChange={event => updateSchool({...school, description: event.target.value})}
                     />
                 </label>
+
+                <button className="delete-button" onClick={event => deleteSchool(event)}>Delete</button>
             </form>
         </div>
     );

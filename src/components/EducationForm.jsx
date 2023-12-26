@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const EducationForm = ({ schools, updateSchools }) => {
     const [isFormOpen, setIsFormOpen] = useState(false);
-    const [childrenState, setChildrenState] = useState({[schools[0].id]: false});    // Keep track of which children tabs are open
+    const [childrenState, setChildrenState] = useState(schools.length > 0 ? {[schools[0].id]: false} : {});    // Keep track of which children tabs are open
 
     const toggleForm = event => {
         event.preventDefault();
