@@ -4,7 +4,6 @@ import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 
 const CompanyForm = ({company, companies, updateCompanies, childrenState, setChildrenState}) => {
     const toggleForm = event => {
-        console.log("toggle");
         event.preventDefault();
         let newChildrenState = {...childrenState};
         for (let key in newChildrenState) {
@@ -13,7 +12,19 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
             }
         }
         setChildrenState(newChildrenState);
-    }
+    };
+
+    const updateCompany = newCompany => {
+        let newCompanies = [];
+        companies.forEach(company => {
+            if (company.id === newCompany.id) {
+                newCompanies.push(newCompany);
+            } else {
+                newCompanies.push(company);
+            }
+        });
+        updateCompanies(newCompanies);
+    };
 
     return (
         <div className="company-form">
@@ -31,6 +42,7 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
                         type="text"
                         maxLength="30"
                         value={company.name}
+                        onChange={event => updateCompany({...company, name: event.target.value})}
                     />
                 </label>
 
@@ -40,6 +52,7 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
                         type="text"
                         maxLength="30"
                         value={company.position}
+                        onChange={event => updateCompany({...company, position: event.target.value})}
                     />
                 </label>
 
@@ -49,6 +62,7 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
                         <input 
                             type="date"
                             value={`${new Date(company.startDate).getFullYear()}-${(new Date(company.startDate).getMonth() + 1).toString().padStart(2, "0")}-${(new Date(company.startDate).getDate()).toString().padStart(2, "0")}`}
+                            onChange={event => updateCompany({ ...company, startDate: (new Date(event.target.value)).getTime() })}
                         />
                     </label>
                     <label>
@@ -56,6 +70,7 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
                         <input 
                             type="date"
                             value={`${new Date(company.endDate).getFullYear()}-${(new Date(company.endDate).getMonth() + 1).toString().padStart(2, "0")}-${(new Date(company.endDate).getDate()).toString().padStart(2, "0")}`}
+                            onChange={event => updateCompany({ ...company, endDate: (new Date(event.target.value)).getTime() })}
                         />
                     </label>
                 </section>
@@ -66,6 +81,7 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
                         rows="10"
                         maxLength="500"
                         value={company.description}
+                        onChange={event => updateCompany({...company, description: event.target.value})}
                     />
                 </label>
 

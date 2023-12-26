@@ -52,6 +52,7 @@ function App() {
         github={github}
         phoneNumber={phoneNumber}
         schools={schools}
+        companies={companies}
       />
     </>
   )

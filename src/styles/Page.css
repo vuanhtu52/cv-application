@@ -65,7 +65,47 @@
     font-weight: 600;
 }
 
-.display-section > .page > .education > section > div:nth-child(2) {
+.display-section > .page > .education .degree {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.display-section > .page > .education .description {
+    word-wrap: break-word;
+}
+
+.display-section > .page > .experience {
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    gap: 30px;
+}
+
+.display-section > .page > .experience > h3 {
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.display-section > .page > .experience > section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.display-section > .page > .experience > section > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.display-section > .page > .experience .position {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.display-section > .page > .experience .description {
     word-wrap: break-word;
 }
 
