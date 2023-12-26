@@ -11,7 +11,18 @@ const ExperienceForm = ({ companies, updateCompanies }) => {
 
     const toggleForm = event => {
         event.preventDefault();
+        if (isFormOpen) {
+            closeChildrenForms();
+        }
         setIsFormOpen(!isFormOpen);
+    };
+
+    const closeChildrenForms = () => {
+        let newChildrenState = {...childrenState};
+        for (let key in newChildrenState) {
+            newChildrenState[key] = false;
+        }
+        setChildrenState(newChildrenState);
     };
 
     return (
