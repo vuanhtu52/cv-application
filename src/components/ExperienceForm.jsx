@@ -4,6 +4,7 @@ import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import CompanyForm from "./CompanyForm";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const ExperienceForm = ({ companies, updateCompanies }) => {
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -22,6 +23,23 @@ const ExperienceForm = ({ companies, updateCompanies }) => {
         for (let key in newChildrenState) {
             newChildrenState[key] = false;
         }
+        setChildrenState(newChildrenState);
+    };
+
+    const addCompany = () => {
+        let newCompany = {
+            id: uuidv4(),
+            name: "",
+            position: "",
+            startDate: (new Date()).getTime(),
+            endDate: (new Date()).getTime(),
+            description: ""
+        }
+        let newCompanies = [...companies];
+        newCompanies.push(newCompany);
+        updateCompanies(newCompanies);
+        let newChildrenState = {...childrenState};
+        newChildrenState[newCompany.id] = true;
         setChildrenState(newChildrenState);
     };
 
@@ -47,7 +65,7 @@ const ExperienceForm = ({ companies, updateCompanies }) => {
                     />)
                 }
 
-                <button className="add-company">+ Company</button>
+                <button className="add-company" onClick={addCompany}>+ Company</button>
             </section>
         </div>
     );
