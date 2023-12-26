@@ -26,6 +26,13 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
         updateCompanies(newCompanies);
     };
 
+    const deleteCompany = event => {
+        event.preventDefault();
+        let newCompanies = [...companies];
+        newCompanies = newCompanies.filter(newCompany => newCompany.id !== company.id);
+        updateCompanies(newCompanies);
+    };
+
     return (
         <div className="company-form">
             <header>
@@ -85,7 +92,7 @@ const CompanyForm = ({company, companies, updateCompanies, childrenState, setChi
                     />
                 </label>
 
-                <button className="delete-button">Delete</button>
+                <button className="delete-button" onClick={event => deleteCompany(event)}>Delete</button>
             </form>
         </div>
     );
