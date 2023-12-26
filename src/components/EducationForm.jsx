@@ -4,13 +4,44 @@ import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import SchoolForm from "./SchoolForm";
 import { useState } from "react";
+// import uuid from 'react-uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const EducationForm = ({ schools, updateSchools }) => {
     const [isFormOpen, setIsFormOpen] = useState(false);
+    const [childrenState, setChildrenState] = useState({[schools[0].id]: false});    // Keep track of which children tabs are open
 
     const toggleForm = event => {
         event.preventDefault();
+        if (isFormOpen) {
+            closeChildrenForms();
+        }
         setIsFormOpen(!isFormOpen);
+    };
+
+    const closeChildrenForms = () => {
+        let newChildrenState = {...childrenState};
+        for (let key in newChildrenState) {
+            newChildrenState[key] = false;
+        }
+        setChildrenState(newChildrenState);
+    };
+
+    const addSchool = () => {
+        let newSchool = {
+            id: uuidv4(),
+            name: "",
+            degree: "",
+            startDate: (new Date()).getTime(),
+            endDate: (new Date()).getTime(),
+            description: ""
+        }
+        let newSchools = [...schools];
+        newSchools.push(newSchool);
+        updateSchools(newSchools);
+        let newChildrenState = {...childrenState};
+        newChildrenState[newSchool.id] = true;
+        setChildrenState(newChildrenState);
     };
 
     return (
@@ -25,10 +56,17 @@ const EducationForm = ({ schools, updateSchools }) => {
 
             <section className={isFormOpen ? "visible" : "hidden"}>
                 {
-                    schools.map(school => <SchoolForm key={school.id} school={school} schools={schools} updateSchools={updateSchools} />)
+                    schools.map(school => <SchoolForm
+                        key={school.id}
+                        school={school}
+                        schools={schools}
+                        updateSchools={updateSchools}
+                        childrenState={childrenState}
+                        setChildrenState={setChildrenState}
+                    />)
                 }
 
-                <button className="add-school">+ School</button>
+                <button className="add-school" onClick={addSchool}>+ School</button>
             </section>
         </div>
     );

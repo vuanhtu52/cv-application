@@ -3,12 +3,17 @@ import ArrowDownIcon from "../assets/svg/arrow-down.svg";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { useState } from "react";
 
-const SchoolForm = ({ school, schools, updateSchools }) => {
-    const [isFormOpen, setIsFormOpen] = useState(false);
-
+const SchoolForm = ({ school, schools, updateSchools, childrenState, setChildrenState }) => {
     const toggleForm = event => {
         event.preventDefault();
-        setIsFormOpen(!isFormOpen);
+        // setIsFormOpen(!isFormOpen);
+        let newChildrenState = {...childrenState};
+        for (let key in newChildrenState) {
+            if (key === school.id) {
+                newChildrenState[key] = !newChildrenState[key];
+            }
+        }
+        setChildrenState(newChildrenState);
     };
 
     const updateSchool = newSchool => {
@@ -28,11 +33,11 @@ const SchoolForm = ({ school, schools, updateSchools }) => {
             <header>
                 <h3>{school.name}</h3>
                 <button onClick={event => toggleForm(event)}>
-                    <img src={isFormOpen ? ArrowDownIcon : ArrowUpIcon} alt="arrow icon" />
+                    <img src={childrenState[school.id] ? ArrowDownIcon : ArrowUpIcon} alt="arrow icon" />
                 </button>
             </header>
 
-            <form className={isFormOpen ? "visible" : "hidden"}>
+            <form className={childrenState[school.id] ? "visible" : "hidden"}>
                 <label>
                     School
                     <input

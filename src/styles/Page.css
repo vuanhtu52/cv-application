@@ -41,11 +41,15 @@
 
 .display-section > .page > .education {
     width: 100%;
+    display: flex; 
+    flex-direction: column;
+    gap: 30px;
 }
 
 .display-section > .page > .education > h3 {
     border-bottom: 1px solid var(--black);
     padding-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .display-section > .page > .education > section {
